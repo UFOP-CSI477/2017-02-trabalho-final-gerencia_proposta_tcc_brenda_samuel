@@ -84,23 +84,30 @@ class PropostasController extends Controller
      */
     public function store(Request $request)
     {
-        $proposta= new Proposta;
-        $proposta->nomealuno=$request->nomealuno;
-        $proposta->matricula=$request->matricula;
-        $proposta->orientador=$request->orientador;
-        $proposta->coorientador=$request->coorientador;
+        $proposta_ja_cadastrada=Proposta::where('user_id','=',Auth::id())->get()->first();
+        if($proposta_ja_cadastrada==null) {
+            $proposta = new Proposta;
+            $proposta->nomealuno = $request->nomealuno;
+            $proposta->matricula = $request->matricula;
+            $proposta->orientador = $request->orientador;
+            $proposta->coorientador = $request->coorientador;
 
-        $proposta->tipotcc=$request->tipotcc;
-        $proposta->titulo=$request->titulo;
-        $proposta->areapesquisa=$request->areapesquisa;
-        $proposta->tema=$request->tema;
-        $proposta->problema=$request->problema;
-        $proposta->referencias=$request->referencias;
-        $proposta->objetivos=$request->objetivos;
-        $proposta->user_id=Auth::id();
-        $proposta->save();
-        return "Cadastro Efetuado";
-    }
+            $proposta->tipotcc = $request->tipotcc;
+            $proposta->titulo = $request->titulo;
+            $proposta->areapesquisa = $request->areapesquisa;
+            $proposta->tema = $request->tema;
+            $proposta->problema = $request->problema;
+            $proposta->referencias = $request->referencias;
+            $proposta->objetivos = $request->objetivos;
+            $proposta->user_id = Auth::id();
+            $proposta->save();
+
+            return view('propostas.proposta')->with('proposta_cadastrada', true);
+        }else{
+
+            return view('propostas.proposta')->with('proposta_cadastrada', false);
+        }
+        }
 
     /**
      * Display the specified resource.

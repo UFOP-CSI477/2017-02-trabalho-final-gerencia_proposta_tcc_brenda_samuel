@@ -3,6 +3,17 @@
     active
 @endsection
 @section('content')
+    @if (isset($proposta_cadastrada))
+        @if($proposta_cadastrada)
+        <div>
+            Proposta Cadastrada!
+         </div>
+            @else
+       <div>
+            Aluno provavelmente ja cadastrou uma proposta!
+       </div>
+           @endif
+    @endif
     <div name="cadastro">
         <h2 class="jumbotron center-block">Cadastro de Proposta</h2>
         <form method="POST" class="form-group" action="/propostaInsertion">
