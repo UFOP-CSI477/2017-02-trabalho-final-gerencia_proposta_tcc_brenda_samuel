@@ -38,7 +38,7 @@
                     <a href="{{ url('todaspropostas') }}">Visualizar Todas as  Propostas</a>
                 </li>
                 <li class="@yield('active4')">
-                    <a href="{{ url('registrarAluno') }}">Cadastrar Aluno</a>
+                    <a href="{{ url('register') }}" >Cadastrar Aluno</a>
                 </li>
                 <li >
                     <a href="{{ route('logout') }}">Sair</a>

@@ -26,7 +26,11 @@ Route::get('/', function () {
     }
 });
 
+
 Auth::routes();
+
+//
+
 Route::get('cadastrarproposta','PropostasController@cadastrar');
 Route::get('todaspropostas','PropostasController@index');
 Route::get('verificaStatus','PropostasController@verificaStatusProposta');
