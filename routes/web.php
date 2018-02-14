@@ -13,7 +13,12 @@
 
 use App\Http\Controllers\PropostasController;
 use Illuminate\Support\Facades\Auth;
-
+Route::get('/registrarAluno', function () {
+    if (Auth::check()) {
+        return view('auth.register');
+    }else{    return view('auth.login');
+    }
+});
 Route::get('/', function () {
     if (Auth::check()) {
     return view('home');
