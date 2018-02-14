@@ -1,4 +1,7 @@
 @extends('layouts.app')
+@section('active2')
+    active
+@endsection
 @section('content')
     <div name="cadastro">
         <h2 class="jumbotron center-block">Cadastro de Proposta</h2>

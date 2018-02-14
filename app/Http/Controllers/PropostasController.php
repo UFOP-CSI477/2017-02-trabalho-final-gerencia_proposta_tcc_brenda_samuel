@@ -52,7 +52,26 @@ class PropostasController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+
+    public function verificaStatusProposta(){
+        if(Auth::check()){
+            $proposta=Proposta::where('user_id','=',Auth::id())->get()->first();
+
+            if($proposta->proposta_aprovada){
+                $aprovada=true;
+
+            }else{
+                $aprovada=false;
+            }
+
+            return view('propostas.verficaStatusProposta')->with('proposta_aprovada',$aprovada);}
+        else {
+            return view('auth.login');
+        }
+
+    }
+
+        public function create()
     {
         //
     }

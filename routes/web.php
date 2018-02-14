@@ -24,6 +24,7 @@ Route::get('/', function () {
 Auth::routes();
 Route::get('cadastrarproposta','PropostasController@cadastrar');
 Route::get('todaspropostas','PropostasController@index');
+Route::get('verificaStatus','PropostasController@verificaStatusProposta');
 Route::get('aprovarpropostas','PropostasController@aprovarPropostas');
 Route::get('aprovarproposta/{id}', ['uses' =>'PropostasController@aprovarProposta']);
 Route::get('deleteproposta/{id}', ['uses' =>'PropostasController@destroy']);

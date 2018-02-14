@@ -43,14 +43,14 @@
 
 
             @else
-                <li class="active">
+                <li class="@yield('active1')">
                     <a href="{{ route('login') }}">Início</a>
                 </li>
-                <li>
+                <li class="@yield('active2')">
                     <a href="{{ url('cadastrarproposta') }}">Cadastro de Proposta</a>
                 </li>
-                <li>
-                    <a href="#">Visualizar Estado da proposta</a>
+                <li class="@yield('active3')">
+                    <a href="{{ url('verificaStatus') }}">Visualizar Estado da proposta</a>
                 </li>
                 <li>
                     <a href="{{ route('logout') }}">Sair</a>
