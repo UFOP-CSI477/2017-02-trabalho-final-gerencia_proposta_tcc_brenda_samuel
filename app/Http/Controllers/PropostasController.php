@@ -56,8 +56,9 @@ class PropostasController extends Controller
     public function verificaStatusProposta(){
         if(Auth::check()){
             $proposta=Proposta::where('user_id','=',Auth::id())->get()->first();
-
-            if($proposta->proposta_aprovada){
+            if($proposta==null) {
+                $aprovada=false;
+            }      else      if($proposta->proposta_aprovada){
                 $aprovada=true;
 
             }else{
